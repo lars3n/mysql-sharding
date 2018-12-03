@@ -6,6 +6,6 @@ MySQL 大表水平切分脚本
 
 # 运行
 * 切分
-  python sharding -u USERNAME -p PASSWORD -d DATABASE TABLE 500000
-  以500000 为单位将表切分成 TABLE_0, TABLE_1, TABLE_2 ...
+  `python sharding.py -u USERNAME -p PASSWORD -d DATABASE TABLE 500000`
+  以500000 为单位将表切分成 TABLE_0, TABLE_1, TABLE_2 ...,TABLE 中保留切分完的数据
 
