@@ -1,8 +1,6 @@
 #coding:utf-8
 import logging
-
 import os
-
 import time
 
 logging.basicConfig(level=logging.DEBUG)
@@ -186,10 +184,6 @@ insert into {table_meta}(table_name, val0, val1) values('{table_name}', {start_n
 
                 self.fork_table(cursor, new_table)
 
-                # sql = 'insert into {table_new} SELECT * FROM {table_ori} {qry_args}'
-                # sql = sql.format(table_new=new_table, table_ori=self.table_ori, qry_args=qry_args)
-                # cursor.execute(sql)
-                # conn.commit()
                 split_num = self.split
 
                 self. move(db_ctx_, table_ori, new_table, start, end, split_num)
@@ -197,10 +191,6 @@ insert into {table_meta}(table_name, val0, val1) values('{table_name}', {start_n
                 logger.info(u'插入完毕, 开始删除原数据')
 
                 self.delete_src(db_ctx_, table_ori, start, end, split_num)
-                # sql = 'delete from {table_ori} {qry_args}'
-                # sql = sql.format(table_ori=self.table_ori, qry_args=qry_args)
-                # cursor.execute(sql)
-                # conn.commit()
 
                 start += batch_limit
 
